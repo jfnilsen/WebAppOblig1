@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Oblig1WebApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Test</Value>
+    </Setting>
+    <Setting Name="MinimumInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="MaximumInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3500</Value>
+    </Setting>
+    <Setting Name="PictureOrSound" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Picture</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
