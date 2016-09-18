@@ -70,5 +70,17 @@ namespace Oblig1WebApp.Properties {
                 this["PictureOrSound"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ClickNow.Png")]
+        public string PicturePath {
+            get {
+                return ((string)(this["PicturePath"]));
+            }
+            set {
+                this["PicturePath"] = value;
+            }
+        }
     }
 }

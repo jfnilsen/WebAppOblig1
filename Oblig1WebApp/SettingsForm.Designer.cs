@@ -33,13 +33,14 @@
             this.minimumLabel = new System.Windows.Forms.Label();
             this.maximumTextbox = new System.Windows.Forms.TextBox();
             this.minimumTextbox = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureOrSoundGroupBox = new System.Windows.Forms.GroupBox();
             this.soundRadioButton = new System.Windows.Forms.RadioButton();
             this.pictureRadioButton = new System.Windows.Forms.RadioButton();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.pictureOrSoundGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -88,22 +89,22 @@
             this.minimumTextbox.Size = new System.Drawing.Size(100, 20);
             this.minimumTextbox.TabIndex = 0;
             // 
-            // groupBox2
+            // pictureOrSoundGroupBox
             // 
-            this.groupBox2.Controls.Add(this.soundRadioButton);
-            this.groupBox2.Controls.Add(this.pictureRadioButton);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(219, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Picture or sound";
+            this.pictureOrSoundGroupBox.Controls.Add(this.soundRadioButton);
+            this.pictureOrSoundGroupBox.Controls.Add(this.pictureRadioButton);
+            this.pictureOrSoundGroupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.pictureOrSoundGroupBox.Location = new System.Drawing.Point(219, 13);
+            this.pictureOrSoundGroupBox.Name = "pictureOrSoundGroupBox";
+            this.pictureOrSoundGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.pictureOrSoundGroupBox.TabIndex = 1;
+            this.pictureOrSoundGroupBox.TabStop = false;
+            this.pictureOrSoundGroupBox.Text = "Picture or sound";
             // 
             // soundRadioButton
             // 
             this.soundRadioButton.AutoSize = true;
-            this.soundRadioButton.Location = new System.Drawing.Point(7, 55);
+            this.soundRadioButton.Location = new System.Drawing.Point(6, 42);
             this.soundRadioButton.Name = "soundRadioButton";
             this.soundRadioButton.Size = new System.Drawing.Size(56, 17);
             this.soundRadioButton.TabIndex = 1;
@@ -114,7 +115,7 @@
             // pictureRadioButton
             // 
             this.pictureRadioButton.AutoSize = true;
-            this.pictureRadioButton.Location = new System.Drawing.Point(7, 19);
+            this.pictureRadioButton.Location = new System.Drawing.Point(6, 19);
             this.pictureRadioButton.Name = "pictureRadioButton";
             this.pictureRadioButton.Size = new System.Drawing.Size(58, 17);
             this.pictureRadioButton.TabIndex = 0;
@@ -149,14 +150,14 @@
             this.ClientSize = new System.Drawing.Size(428, 151);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.pictureOrSoundGroupBox);
             this.Controls.Add(this.groupBox1);
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.pictureOrSoundGroupBox.ResumeLayout(false);
+            this.pictureOrSoundGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -168,10 +169,11 @@
         private System.Windows.Forms.Label minimumLabel;
         private System.Windows.Forms.TextBox maximumTextbox;
         private System.Windows.Forms.TextBox minimumTextbox;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox pictureOrSoundGroupBox;
         private System.Windows.Forms.RadioButton soundRadioButton;
         private System.Windows.Forms.RadioButton pictureRadioButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

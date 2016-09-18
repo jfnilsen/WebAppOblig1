@@ -1,5 +1,6 @@
 ﻿using Oblig1WebApp.Properties;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Oblig1WebApp
@@ -13,6 +14,24 @@ namespace Oblig1WebApp
             maximumTextbox.Text = String.Format("{0}", (int)Settings.Default["MaximumInterval"]);
             minimumTextbox.KeyPress += NumbersOnlyTextfieldHandler;
             maximumTextbox.KeyPress += NumbersOnlyTextfieldHandler;
+            CheckRadioButtonFromSettings();
+        }
+
+        /// <summary>
+        /// A method which will check the radiobutton from the stored settings
+        /// </summary>
+        private void CheckRadioButtonFromSettings()
+        {
+            string alertType = (string)Settings.Default["PictureOrSound"];
+            switch (alertType)
+            {
+                case "Picture":
+                    pictureRadioButton.Checked = true;
+                    break;
+                case "Sound":
+                    soundRadioButton.Checked = true;
+                    break;
+            }
         }
 
         /// <summary>
@@ -26,11 +45,17 @@ namespace Oblig1WebApp
             }
         }
 
+        /// <summary>
+        /// Closes the form without saving new values
+        /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Saves the entered values in %userprofile%\Appdata\Local\Oblig1WebApp
+        /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             int minimumValue, maximumValue;
@@ -38,6 +63,7 @@ namespace Oblig1WebApp
             {
                 Settings.Default["MinimumInterval"] = minimumValue;
                 Settings.Default["MaximumInterval"] = maximumValue;
+                Settings.Default["PictureOrSound"] = GetNameOfCheckedRadioButton();
                 Settings.Default.Save();
                 this.Close();
             }
@@ -45,6 +71,16 @@ namespace Oblig1WebApp
             {
                 MessageBox.Show("Invalid values.");
             }
+        }
+
+        /// <summary>
+        /// Gets the checked radiobutton in the pictureOrSoundGroupBox and returns its name
+        /// </summary>
+        /// <returns>A string "Picture" if the pictureradiobutton was checked, returns "Sound" in the other case</returns>
+        private string GetNameOfCheckedRadioButton()
+        {
+            RadioButton checkedRadioButton = pictureOrSoundGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radiobutton => radiobutton.Checked);
+            return checkedRadioButton.Text;
         }
 
         /// <summary>

@@ -48,7 +48,7 @@ namespace Oblig1WebApp
         {
             PictureBox picture = new PictureBox()
             {
-                Image = Image.FromFile(@"C:\Users\Jim\Downloads\react\45645234434.jpg"), //TODO: Relativepath to a file in project
+                Image = Image.FromFile((string)Settings.Default["PicturePath"]), 
                 SizeMode = PictureBoxSizeMode.AutoSize
             };
             picture.MouseClick += new MouseEventHandler(SaveScore);
