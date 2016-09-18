@@ -12,8 +12,10 @@ namespace Oblig1WebApp
             InitializeComponent();
             minimumTextbox.Text = String.Format("{0}", (int)Settings.Default["MinimumInterval"]);
             maximumTextbox.Text = String.Format("{0}", (int)Settings.Default["MaximumInterval"]);
+            imageFilePathTextBox.Text = (string)Settings.Default["PicturePath"];
             minimumTextbox.KeyPress += NumbersOnlyTextfieldHandler;
             maximumTextbox.KeyPress += NumbersOnlyTextfieldHandler;
+            filePickerButton.MouseClick += SelectFile;
             CheckRadioButtonFromSettings();
         }
 
@@ -64,6 +66,7 @@ namespace Oblig1WebApp
                 Settings.Default["MinimumInterval"] = minimumValue;
                 Settings.Default["MaximumInterval"] = maximumValue;
                 Settings.Default["PictureOrSound"] = GetNameOfCheckedRadioButton();
+                Settings.Default["PicturePath"] = imageFilePathTextBox.Text;
                 Settings.Default.Save();
                 this.Close();
             }
@@ -94,6 +97,19 @@ namespace Oblig1WebApp
             bool maxParseSuccess = int.TryParse(maximumTextbox.Text, out maximumValue);
 
             return minimumValue < maximumValue && minParseSuccess && maxParseSuccess;
+        }
+
+        private void SelectFile(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog()
+            {
+                Filter = "Image files|*.jpg;*.jpeg;*.png;*.gif;*.tif;*.tiff"
+            };
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                imageFilePathTextBox.Text = dialog.FileName;
+            }
         }
     }
 }

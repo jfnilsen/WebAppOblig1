@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.minmaxValuesGroupBox = new System.Windows.Forms.GroupBox();
             this.maximumLabel = new System.Windows.Forms.Label();
             this.minimumLabel = new System.Windows.Forms.Label();
             this.maximumTextbox = new System.Windows.Forms.TextBox();
@@ -39,23 +39,27 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox1.SuspendLayout();
+            this.fileSelectionGroupBox = new System.Windows.Forms.GroupBox();
+            this.imageFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.filePickerButton = new System.Windows.Forms.Button();
+            this.minmaxValuesGroupBox.SuspendLayout();
             this.pictureOrSoundGroupBox.SuspendLayout();
+            this.fileSelectionGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // minmaxValuesGroupBox
             // 
-            this.groupBox1.Controls.Add(this.maximumLabel);
-            this.groupBox1.Controls.Add(this.minimumLabel);
-            this.groupBox1.Controls.Add(this.maximumTextbox);
-            this.groupBox1.Controls.Add(this.minimumTextbox);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Time to wait values";
+            this.minmaxValuesGroupBox.Controls.Add(this.maximumLabel);
+            this.minmaxValuesGroupBox.Controls.Add(this.minimumLabel);
+            this.minmaxValuesGroupBox.Controls.Add(this.maximumTextbox);
+            this.minmaxValuesGroupBox.Controls.Add(this.minimumTextbox);
+            this.minmaxValuesGroupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.minmaxValuesGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.minmaxValuesGroupBox.Name = "minmaxValuesGroupBox";
+            this.minmaxValuesGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.minmaxValuesGroupBox.TabIndex = 0;
+            this.minmaxValuesGroupBox.TabStop = false;
+            this.minmaxValuesGroupBox.Text = "Delay before event (milliseconds)";
             // 
             // maximumLabel
             // 
@@ -125,7 +129,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(10, 118);
+            this.saveButton.Location = new System.Drawing.Point(10, 202);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 2;
@@ -135,7 +139,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(344, 120);
+            this.cancelButton.Location = new System.Drawing.Point(342, 202);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -143,28 +147,60 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // fileSelectionGroupBox
+            // 
+            this.fileSelectionGroupBox.Controls.Add(this.imageFilePathTextBox);
+            this.fileSelectionGroupBox.Controls.Add(this.filePickerButton);
+            this.fileSelectionGroupBox.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.fileSelectionGroupBox.Location = new System.Drawing.Point(12, 118);
+            this.fileSelectionGroupBox.Name = "fileSelectionGroupBox";
+            this.fileSelectionGroupBox.Size = new System.Drawing.Size(405, 78);
+            this.fileSelectionGroupBox.TabIndex = 5;
+            this.fileSelectionGroupBox.TabStop = false;
+            this.fileSelectionGroupBox.Text = "Select your own image to be displayed";
+            // 
+            // imageFilePathTextBox
+            // 
+            this.imageFilePathTextBox.Location = new System.Drawing.Point(7, 20);
+            this.imageFilePathTextBox.Name = "imageFilePathTextBox";
+            this.imageFilePathTextBox.Size = new System.Drawing.Size(392, 20);
+            this.imageFilePathTextBox.TabIndex = 1;
+            // 
+            // filePickerButton
+            // 
+            this.filePickerButton.Location = new System.Drawing.Point(305, 49);
+            this.filePickerButton.Name = "filePickerButton";
+            this.filePickerButton.Size = new System.Drawing.Size(94, 23);
+            this.filePickerButton.TabIndex = 0;
+            this.filePickerButton.Text = "Change image";
+            this.filePickerButton.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 151);
+            this.ClientSize = new System.Drawing.Size(429, 237);
+            this.Controls.Add(this.fileSelectionGroupBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.pictureOrSoundGroupBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.minmaxValuesGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SettingsForm";
-            this.Text = "SettingsForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Text = "Settings";
+            this.minmaxValuesGroupBox.ResumeLayout(false);
+            this.minmaxValuesGroupBox.PerformLayout();
             this.pictureOrSoundGroupBox.ResumeLayout(false);
             this.pictureOrSoundGroupBox.PerformLayout();
+            this.fileSelectionGroupBox.ResumeLayout(false);
+            this.fileSelectionGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox minmaxValuesGroupBox;
         private System.Windows.Forms.Label maximumLabel;
         private System.Windows.Forms.Label minimumLabel;
         private System.Windows.Forms.TextBox maximumTextbox;
@@ -175,5 +211,8 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox fileSelectionGroupBox;
+        private System.Windows.Forms.TextBox imageFilePathTextBox;
+        private System.Windows.Forms.Button filePickerButton;
     }
 }

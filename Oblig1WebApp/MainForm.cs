@@ -1,6 +1,7 @@
 ﻿using Oblig1WebApp.Properties;
 using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Oblig1WebApp
@@ -18,7 +19,6 @@ namespace Oblig1WebApp
         public MainForm()
         {
             InitializeComponent();
-            timer.Tick += new EventHandler(DisplayImage);
             this.scoreListView.ListViewItemSorter = new ListViewSecondColumnSorter();
             this.startChallengeButton.Click += new EventHandler(StartChallenge);
             this.MouseClick += new MouseEventHandler(SaveScore);
@@ -36,13 +36,33 @@ namespace Oblig1WebApp
             {
                 Random random = new Random();
                 timer.Interval = random.Next((int)Settings.Default["MinimumInterval"], (int)Settings.Default["MaximumInterval"]);
+
+                AddTimerTickEventHandler();
+
                 timer.Start();
                 ChallengeStarted = true;
             }
         }
 
         /// <summary>
+        /// A method that adds an eventhandler to the timer, based on the option picked in the settings menu.
+        /// </summary>
+        private void AddTimerTickEventHandler()
+        {
+            switch ((string)Settings.Default["PictureOrSound"])
+            {
+                case "Picture":
+                    timer.Tick += DisplayImage;
+                    break;
+                case "Sound":
+                    timer.Tick += PlaySound;
+                    break;
+            }
+        }
+
+        /// <summary>
         /// A method that displays an image at a random location in the Panel Control.
+        /// Finally it removes the eventhandler from the timer.
         /// </summary>
         private void DisplayImage(object sender, EventArgs e)
         {
@@ -56,6 +76,19 @@ namespace Oblig1WebApp
             picturePanel.Controls.Add(picture);
 
             timer.Stop();
+            timer.Tick -= DisplayImage;
+            startTime = DateTime.Now;
+        }
+
+        /// <summary>
+        /// A method that plays a sound and records the time it played.
+        /// Finally it removes the eventhandler from the timer.
+        /// </summary>
+        private void PlaySound(object sender, EventArgs e)
+        {
+            SystemSounds.Beep.Play();
+            timer.Stop();
+            timer.Tick -= PlaySound;
             startTime = DateTime.Now;
         }
 
